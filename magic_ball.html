@@ -66,7 +66,12 @@
 <script>
  window.onload = function() {
     const body = document.body;
-
+// Додавання заголовка
+    const header = document.createElement('h1');
+    header.textContent = 'Задай своє питання магічній кулі';
+    header.style.color = 'white';
+    body.appendChild(header);
+     
     const input = document.createElement('input');
     input.type = 'text';
     input.id = 'question';
