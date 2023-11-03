@@ -66,12 +66,7 @@
 <script>
  window.onload = function() {
     const body = document.body;
- \// Додавання заголовка
-    const header = document.createElement('h1');
-    header.textContent = 'Задай своє питання магічній кулі';
-    header.style.color = 'white';
-    body.appendChild(header);
-     
+
     const input = document.createElement('input');
     input.type = 'text';
     input.id = 'question';
@@ -108,18 +103,12 @@
             return;
         }
 
-        const answers = ["Так", "Ні", "Не знаю", "Не можу сказати", "Напевно", "Більше ні чим так"];
+        const answers = ["Так", "Ні", "100%", "Не можу сказати", "Напевно", "Більше ні чим так", ",Більше так чим ні"];
         const randomAnswer = answers[Math.floor(Math.random() * answers.length)];
 
         answerDisplay.innerHTML = randomAnswer;
         lastQuestion = question; 
     }
 }
-
-
-
-
-
-
 </script>
 </html>
