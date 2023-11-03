@@ -91,7 +91,7 @@
     p.id = 'answer';
     div.appendChild(p);
 
-    let lastQuestion = ''; // Переменная для хранения предыдущего вопроса
+    let lastQuestion = ''; 
 
     function getAnswer() {
         let questionInput = document.getElementById('question');
@@ -112,7 +112,7 @@
         const randomAnswer = answers[Math.floor(Math.random() * answers.length)];
 
         answerDisplay.innerHTML = randomAnswer;
-        lastQuestion = question; // Сохраняем текущий вопрос
+        lastQuestion = question; 
     }
 }
 
