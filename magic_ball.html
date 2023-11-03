@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Магічна куля</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #18001c;
+            padding: 50px;
+            text-align: center;
+        }
+        #question {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: transparent; 
+            width: 80%;
+            border: 2px solid #00bcc9;
+            border-radius: 30px;
+            color: #ffffff;
+            -webkit-box-shadow:0 0 10px #00bcc9;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #00bcc9;
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+        }
+        #magicBall {
+            position: relative;
+            width: 80%;
+            height: 0;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            padding-bottom: 30%;
+            background-image: url('magicBall.png');
+            background-size: contain; /* Змінено тут */
+            background-repeat: no-repeat; /* Додано тут */
+            background-position: center; /* Додано тут */
+            outline: 3px solid #00bcc9;
+            margin: 0 auto;
+            -webkit-box-shadow:0 0 20px #00bcc9;
+        }
+        #answer {
+            position: absolute;
+        
+            top: 46%;
+            left: 48%;
+            -webkit-text-stroke: 1px #4b003b;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 20px;
+            text-align: center;
+            
+        }
+
+        @media (min-width: 600px) {
+          #question, #magicBall {
+              width: 300px;
+          }
+        }
+    </style>
+</head>
+<body>
+</body>
+
+<script>
+ window.onload = function() {
+    const body = document.body;
+
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.id = 'question';
+    input.placeholder = 'Введіть своє питання тут';
+    body.appendChild(input);
+
+    const button = document.createElement('button');
+    button.innerHTML = 'Отримати відповідь';
+    button.onclick = getAnswer;
+    body.appendChild(button);
+
+    const div = document.createElement('div');
+    div.id = 'magicBall';
+    body.appendChild(div);
+
+    const p = document.createElement('p');
+    p.id = 'answer';
+    div.appendChild(p);
+
+    let lastQuestion = ''; // Переменная для хранения предыдущего вопроса
+
+    function getAnswer() {
+        let questionInput = document.getElementById('question');
+        let question = questionInput.value;
+        const answerDisplay = document.getElementById('answer');
+
+        if (question.trim() === '') {
+            alert('Будь ласка, введіть питання.');
+            return;
+        }
+
+        if (question === lastQuestion) {
+            alert('Ви вже отримали відповідь, будь ласка змініть ваше питання.');
+            return;
+        }
+
+        const answers = ["Так", "Ні", "Не знаю", "Не можу сказати", "Напевно", "Більше ні чим так"];
+        const randomAnswer = answers[Math.floor(Math.random() * answers.length)];
+
+        answerDisplay.innerHTML = randomAnswer;
+        lastQuestion = question; // Сохраняем текущий вопрос
+    }
+}
+
+
+
+
+
+
+</script>
+</html>
