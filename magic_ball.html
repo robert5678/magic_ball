@@ -32,7 +32,7 @@
             height: 0;
             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
             padding-bottom: 30%;
-            background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/b9e405d8-7e26-4ce3-a7d8-dd388ca2b4dc/d5tk6bt-cca127f7-bb11-433e-bb01-fe369acaa5cb.png/v1/fill/w_1024,h_820/png_magic_ball__2__by_moonglowlilly_d5tk6bt-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9ODIwIiwicGF0aCI6IlwvZlwvYjllNDA1ZDgtN2UyNi00Y2UzLWE3ZDgtZGQzODhjYTJiNGRjXC9kNXRrNmJ0LWNjYTEyN2Y3LWJiMTEtNDMzZS1iYjAxLWZlMzY5YWNhYTVjYi5wbmciLCJ3aWR0aCI6Ijw9MTAyNCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.cJJg4zcCTPtEdqzypbf0Q01VXGEE-f91Fbon5YXHq8M');
+            background-image: url('magicBall.png');
             background-size: contain;
             background-repeat: no-repeat; 
             background-position: center; 
@@ -52,6 +52,14 @@
             text-align: center;
             
         }
+        #exitButton {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+        }
 
         @media (min-width: 600px) {
           #question, #magicBall {
@@ -61,17 +69,13 @@
     </style>
 </head>
 <body>
+    <button id="exitButton">Вийти</button>
 </body>
 
 <script>
  window.onload = function() {
     const body = document.body;
-// Додавання заголовка
-    const header = document.createElement('h1');
-    header.textContent = 'Задай своє питання магічній кулі';
-    header.style.color = 'white';
-    body.appendChild(header);
-     
+
     const input = document.createElement('input');
     input.type = 'text';
     input.id = 'question';
@@ -114,6 +118,10 @@
         answerDisplay.innerHTML = randomAnswer;
         lastQuestion = question; 
     }
+
+    document.getElementById('exitButton').addEventListener('click', function() {
+        window.location.href = 'https://robert5678.github.io/individual-task/individual-task.html';
+    });
 }
 </script>
 </html>
